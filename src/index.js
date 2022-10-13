@@ -10,6 +10,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', route);
 
-app.listen(process.env.PORT || 3000, function() {
-    console.log('Express app running on port ' + (process.env.PORT || 3000))
+app.listen(process.env.HOST || 8000, function() {
+    console.log(`Express app running on port  ${ process.env.HOST || 8000}`)
 });
