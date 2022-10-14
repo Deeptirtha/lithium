@@ -1,7 +1,7 @@
 const url = "https://www.google.com"
 
 let printSomething = function() {
-    console.log("Request details are - a, b, c")
+    console.log("Welcome to my application. I am Deeptirtha Mukherjee and a part of FunctionUp Lithium cohort.")
     return "done"
 }
 
