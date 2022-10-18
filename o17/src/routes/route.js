@@ -2,11 +2,7 @@ const express = require('express');
 const abc = require('../introduction/intro')
 const router = express.Router();
 
-router.get('/test-me', function (req, res) {
-    console.log('My batch is', abc.name)
-    abc.printName()
-    res.send('My second ever api!')
-});
+
 
 //----------------------------------------------------------------------question-1----------------------------------------------------------
 router.get('/movies', function (req, res){
@@ -32,7 +28,7 @@ router.get('/movie/:x', function (req, res){
     if(ac<movies.length){
             res.send(movies[a.x])
         }
-        else{res.send("enter a valid no")}
+        else{res.send("enter a no brtween 0-3")}
  
 })
 //------------------------------------------------------------question---4----------------------------------------------
@@ -52,7 +48,6 @@ router.get('/films', function (req, res){
         'name': 'Finding Nemo'
        }]
        
-
      res.send(movies)
 })
 
@@ -71,44 +66,29 @@ router.get('/films/:filmid', function (req, res){
         'id': 4,
         'name': 'Finding Nemo'
        }]
-       
-       let a=req.params
-       let ac=a.filmid
+    
+      // let a=req.params
+       let ac=req.params.filmid
         for(i=0;i<movies.length;i++){
-       if(ac==movies[i].id){
+        if(ac==movies[i].id){
             res.send(movies[i])
-           
-        }}
-       //  else{res.send("no movie exists with this id")}}
-       for(i=0;i<movies.length;i++){
+            return
+       }}
+        // else{res.send("no movie exists with this id")}}
+       for(i=1;i<movies.length;i++){
         if(ac!==movies[i].id){
              res.send("no movie exists with this id")
-            
-         }}
- })
-// // Example 1 for path params
-// router.get('/students/:studentName', function(req, res){
-//     // ':' denotes that the following part of route is a variable
-//     // The value of this variable is what we are sending in the request url after /students
-//     // This value is set in the form of an object inside req.params
-//     // The object contain key value pairs
-//     // key is the variable in the route
-//     // value is whatever dynamic value sent in the request url
-//     let myParams = req.params
+             return
+            }}
 
-//     // params attribute is fixed in a request object
-//     // params contains the path parameters object
-//     console.log("The path params in the request are : ", myParams)
-//     res.send('The full name is ' + myParams.studentName )
-// })
+//----------------------------------------------------------------------2nd aproch of q-5----------------------------------------
+//           id=req.params.filmid
+//             const ax =movies.find(film=>film.id==id)
+//             if(ax){
+//                 res.send(ax)
+//             }else{res.send("no movie exists with this id")}
 
-// // Example 2 for path params
-// router.get('/student-details/:name', function(req, res){
-//     let requestParams = req.params
-//     console.log("This is the request ", requestParams)
-//     let studentName = requestParams.name
-//     console.log('Name of the student is ', studentName)
-//     res.send('Dummy response')
-// })
 
+
+    })
 module.exports = router;
