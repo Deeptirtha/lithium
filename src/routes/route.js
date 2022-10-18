@@ -30,7 +30,8 @@ router.get("/movies/:indexNumber", function(req, res){
 
 router.get("/shoes", function(req, res){
     let queryParams = req.query
-    let brand = queryParams.brand
+    let brand = queryParams.puma
+    console.log("the aval product id "+brand)
     res.send("dummy response")
 })
 
