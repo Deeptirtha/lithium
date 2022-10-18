@@ -71,15 +71,11 @@ router.get('/films/:filmid', function (req, res){
        let ac=req.params.filmid
         for(i=0;i<movies.length;i++){
         if(ac==movies[i].id){
-            res.send(movies[i])
-            return
+            return res.send(movies[i])
        }}
-        // else{res.send("no movie exists with this id")}}
-       for(i=1;i<movies.length;i++){
-        if(ac!==movies[i].id){
-             res.send("no movie exists with this id")
-             return
-            }}
+       
+    res.send("no movie exists with this id")
+      
 
 //----------------------------------------------------------------------2nd aproch of q-5----------------------------------------
 //           id=req.params.filmid
