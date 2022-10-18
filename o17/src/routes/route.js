@@ -67,7 +67,7 @@ router.get('/films/:filmid', function (req, res){
         'name': 'Finding Nemo'
        }]
     
-      // let a=req.params
+     
        let ac=req.params.filmid
         for(i=0;i<movies.length;i++){
         if(ac==movies[i].id){
