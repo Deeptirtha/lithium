@@ -1,3 +1,4 @@
+const { json } = require('body-parser');
 const express = require('express');
 const router = express.Router();
 
@@ -29,22 +30,31 @@ let players =
            "sports": [
                "soccer"
            ]
-       },
+       }
    ]
 
 
 router.post("/player" , function(req, res) {
     let newplayerdetails=req.body
     let newplayer=req.body.name
-    console.log(newplayer)
-    for(i=0;i<players.length;i++){
-        if(players[i].name!==newplayer){
-            players.push(newplayerdetails)
-            console.log(players)
-           res.send("player name added")
-        }
-       // res.send("player already exist in the list")
-    }
+    
+    // for(i=0;i<players.length;i++){
+    //     if(players[i].name!==newplayer){
+    //         players.push(newplayerdetails)
+    //         console.log(players)
+    //       return res.send("player name added")
+    //     }
+        
+    // }
+    // res.send("playerr exist with this name")
+
+
+    const checkpoin=players.find(a=>a.name==newplayer)
+    if(checkpoin){
+        res.send("player exist with this name")
+    }else{players.push(newplayerdetails)
+        console.log(players)
+        res.send("player details added")}
    
    
 })
