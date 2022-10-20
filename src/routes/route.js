@@ -37,18 +37,6 @@ let players =
 router.post("/player" , function(req, res) {
     let newplayerdetails=req.body
     let newplayer=req.body.name
-    
-    // for(i=0;i<players.length;i++){
-    //     if(players[i].name!==newplayer){
-    //         players.push(newplayerdetails)
-    //         console.log(players)
-    //       return res.send("player name added")
-    //     }
-        
-    // }
-    // res.send("playerr exist with this name")
-
-
     const checkpoin=players.find(a=>a.name==newplayer)
     if(checkpoin){
         res.send("player exist with this name")
