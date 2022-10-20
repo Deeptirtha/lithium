@@ -46,9 +46,42 @@ router.post("/player" , function(req, res) {
    
    
 })
-
-router.get("/name/:link/:colour",function(req,res){
-    res.send(req.params)
+let persons= [
+    {
+    name: "PK",
+    age: 10,
+    votingStatus: false
+ },
+ {
+    name: "SK",
+    age: 20,
+    votingStatus: false
+ },
+ {
+    name: "AA",
+    age: 70,
+    votingStatus: false
+ },
+ {
+    name: "SC",
+    age: 5,
+    votingStatus: false
+ },
+ {
+    name: "HO",
+    age: 40,
+    votingStatus: false
+ }
+ ]
+ 
+router.get("/voatingage",function(req,res){
+    let age=req.query.age
+    let final=persons.filter(a=>a.age>age)
+    for(i=0;i<final.length;i++){
+        final[i].votingStatus="true"
+    }
+    console.log(persons)
+    res.send("voater list is updated ")
 })
 
 
