@@ -32,7 +32,10 @@ let persons= [
 router.get("/voatingage",function(req,res){
     let age=req.query.age
     let final=persons.filter(a=>a.age>age)
-    final.forEach(a=>a.votingStatus="true")
+    final.forEach(a=>a.votingStatus="true")          //-----------------using foreach
+   // final.map(a=>a.votingStatus="true")             //----------------using map
+
+
     // for(i=0;i<final.length;i++){
     //     final[i].votingStatus="true"
     // }
