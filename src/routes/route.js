@@ -34,7 +34,7 @@ let players =
    ]
 
 
-router.post("/player" , function(req, res) {
+router.post("/player/:name" , function(req, res) {
     let newplayerdetails=req.body
     let newplayer=req.body.name
     const checkpoin=players.find(a=>a.name==newplayer)
@@ -47,7 +47,9 @@ router.post("/player" , function(req, res) {
    
 })
 
-
+router.get("/name/:link/:colour",function(req,res){
+    res.send(req.params)
+})
 
 
 
