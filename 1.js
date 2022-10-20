@@ -29,10 +29,7 @@ let players=[
 ]
 
 
-const checkpoin=players.find(a=>a.name=="lokesh")
-if(checkpoin){
-    console.log("player exist with this name")
-}else{players.push(newplayerdetails)
-    console.log("name added")}
+const checkpoin=players.find(a=>a.name=="manish")
+
 
     console.log(checkpoin)
