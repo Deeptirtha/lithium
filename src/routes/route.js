@@ -32,9 +32,11 @@ let persons= [
 router.get("/voatingage",function(req,res){
     let age=req.query.age
     let final=persons.filter(a=>a.age>age)
-    for(i=0;i<final.length;i++){
-        final[i].votingStatus="true"
-    }
+    final.forEach(a=>a.votingStatus="true")
+    // for(i=0;i<final.length;i++){
+    //     final[i].votingStatus="true"
+    // }
+    
     console.log(persons)
     res.send("voater list is updated ")
 })
