@@ -2,14 +2,17 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema( {
   BookName:String,
-  AutherName:{String,
-  
-  required: true},
+  AutherName:{
+    type:String,
+    required: true},
   About:String,
-  Year:Number
+  Year:Number,
+  Rating:{
+    type:String,
+    required: true}
 }, { timestamps: true });
 
-module.exports = mongoose.model('User', userSchema) //users
+module.exports = mongoose.model('Deep', userSchema) 
 
 
 
