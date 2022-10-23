@@ -27,9 +27,11 @@ let players=[
         ]
     }
 ]
+let x=players.findIndex(element => element.name =="lo")
+let xt=players[x].id
+if(xt==undefined){
+    players[x].id=55
+}
 
-
-const checkpoin=players.find(a=>a.name=="manish")
-
-
-    console.log(checkpoin)
+console.log(x)
+console.log(players[x])
