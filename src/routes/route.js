@@ -11,7 +11,8 @@ let players =
            "city": "jalandhar",
            "sports": [
                "swimming"
-           ]
+           ],
+           "id":5
        },
        {
            "name": "gopal",
@@ -38,8 +39,7 @@ router.post("/player" , function(req, res) {
     let newplayerdetails=req.body
     let newplayer=req.body.name
     const checkpoin=players.find(a=>a.name==newplayer)
-   
-    if(checkpoin){
+   if(checkpoin){
         res.send("player exist with this name")
     }else{players.push(newplayerdetails)
         console.log(players)
@@ -47,6 +47,8 @@ router.post("/player" , function(req, res) {
    
    
 })
+
+
 let persons= [
     {
     name: "PK",
