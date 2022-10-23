@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema( {
-  BookName:String,
+  BookName:{type:String,
+    unique:true},
   AutherName:{
     type:String,
     required: true},
