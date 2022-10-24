@@ -40,7 +40,7 @@ router.post("/player" , function(req, res) {
     let newplayer=req.body.name
     const checkpoin=players.find(a=>a.name==newplayer)
    if(checkpoin){
-        res.send("player exist with this name")
+        res.send("error.. Player already processed")
     }else{players.push(newplayerdetails)
         console.log(players)
         res.send("player details added")}
@@ -59,14 +59,14 @@ let x=players.findIndex(element => element.name ==newplayer)
 
 if(x>=0){
     if(players[x].id>0){
-       return  res.send("player id already exist")
+       return  res.send("error...The booking was already processed "+JSON.stringify(players[x]))
     }else{
         players[x].id=54887
-       return res.send(players[x])
+       return res.send("player id added "+JSON.stringify(players[x]))
     }
     
 }
-else{res.send("player does not exist")}
+else{res.send("something relevant about player not being found.")}
 })
 //=================================================================Question-2 (vote)============================================
 let persons= [
