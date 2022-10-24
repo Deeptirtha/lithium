@@ -48,7 +48,27 @@ router.post("/player" , function(req, res) {
    
 })
 
+//===================================================extra question=========================================================
 
+
+router.post("/players/:name/:id" , function(req, res) {
+
+let newplayerdetails=req.params
+    let newplayer=newplayerdetails.name
+let x=players.findIndex(element => element.name ==newplayer)
+
+if(x>=0){
+    if(players[x].id>0){
+       return  res.send("player id already exist")
+    }else{
+        players[x].id=54887
+       return res.send(players[x])
+    }
+    
+}
+else{res.send("player does not exist")}
+})
+//=================================================================Question-2 (vote)============================================
 let persons= [
     {
     name: "PK",

@@ -24,14 +24,20 @@ let players=[
         "city": "mumbai",
         "sports": [
             "soccer"
-        ]
+        ],
+        "id":5487
     }
 ]
-let x=players.findIndex(element => element.name =="lo")
-let xt=players[x].id
-if(xt==undefined){
-    players[x].id=55
-}
+let x=players.findIndex(element => element.name =="manish")
 
-console.log(x)
-console.log(players[x])
+if(x>=0){
+    if(players[x].id>0){
+        console.log("player id already exist")
+    }else{
+        players[x].id=54887
+        console.log(players[x])
+    }
+    
+}else{console.log("player does not exist")}
+
+
