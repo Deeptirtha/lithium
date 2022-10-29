@@ -1,16 +1,23 @@
 const authorModel = require("../models/authorModel")
 const bookModel= require("../models/bookModel")
+const PublisherModel= require("../models/publishermodel")
 
 const createBook= async function (req, res) {
     let book = req.body
     let aid =req.body.author
     let pid =req.body.publisher
+    let x=aid.length
+    let y=pid.length
+    if(x<24 || y<24){
+        return res.send("please enter valid length author id or publisher id")
+     }
     
-    let bookCreated = await bookModel.create(book)
-    if(aid && pid){
+    
+    else if(aid && pid && (await authorModel.findOne({_id:aid})) && (await PublisherModel.findOne({_id:pid})) ){
+        let bookCreated = await bookModel.create(book)
     res.send({data: bookCreated})}
    
-    else{res.send("please enter author id or publisher id")}
+    else{res.send("please enter valid author id or publisher id")}
 }
 
 const getBooksData= async function (req, res) {
