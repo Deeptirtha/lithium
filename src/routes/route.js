@@ -1,25 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const UserController= require("../controllers/userController")
-const BookController= require("../controllers/bookController")
+const OrderController=require("../controllers/OrderController")
+const ProductController=require("../controllers/ProductController")
 const commonMW = require ("../middlewares/commonMiddlewares")
 
-router.get("/test-me", function (req, res) {
-    res.send("My first ever api!")
-})
+router.post("/createUser", commonMW.validationMiddleware, UserController.createUser)
+router.get("/geteUser", UserController.getUserData)
 
-//Can we set the 'next' input parameter in a route handler?
-//What is the primary difference between a middleware and a route handler?
-router.post("/createBook", commonMW.myMiddleware,BookController.createBook, function(req, res, next){
-    res.send("Ending the cycle")
-}  )
+router.post("/creatproduct",commonMW.validationMiddleware,ProductController.createProduct)
+router.get("/getproduct",ProductController.getProduct)
 
-router.post("/createUser", commonMW.myMiddleware, UserController.createUser)
 
-router.get("/dummy1", commonMW.myOtherMiddleware, UserController.dummyOne)
+router.post("/creat-order",commonMW.validationMiddleware,OrderController.creatorder)
+router.get("/getorder",OrderController.getOrderData)
+router.get("/get-allorder",OrderController.getAllOrderData)
 
-router.get("/dummy2", commonMW.myOtherMiddleware, UserController.dummyTwo)
-
-router.get("/basicRoute", commonMW.mid1, commonMW.mid2, commonMW.mid3, commonMW.mid4, UserController.basicCode)
 
 module.exports = router;
