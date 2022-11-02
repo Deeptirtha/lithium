@@ -5,9 +5,8 @@
 const validationMiddleware = function(req, res, next){
    
 
-    res.setHeaders("isFreeAppUser","true")
     let validation = req.headers["isFreeAppUser"]
-    console.log(validation)
+    console.log(req.headers)
 
     if(validation) {
         next()
