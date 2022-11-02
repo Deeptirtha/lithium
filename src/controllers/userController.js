@@ -1,9 +1,10 @@
 const UserModel= require("../models/userModel")
 
 const createUser= async function (req, res) {
-   let body = req.body
-    let headers = req.headers
-  res.send({msg: "Hi"})
+   let data = req.body
+   
+    let savedData= await productModel.create(data)
+  res.send({msg: savedData})
 }
 
 const getUsersData= async function (req, res) {

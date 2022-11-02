@@ -1,28 +1,22 @@
 
 
-const myOtherMiddleware = function(req, res, next){
-  
-    let acceptHeaderValue = req.headers["accept"]
 
-    if(acceptHeaderValue == "application/json") {
-        req.wantsJson = true
-    } else {
-        req.wantsJson = false
-    }
-    next()
-}
+
 const validationMiddleware = function(req, res, next){
    
+
+    res.setHeaders("isFreeAppUser","true")
     let validation = req.headers["isFreeAppUser"]
+    console.log(validation)
 
     if(validation) {
         next()
     } else {
-        res.send({msg:"isFreeAppUser Header is present"})
+        res.send({msg:"ERR can not creat user. isFreeAppUser Header is requerd"})
     }
     
 }
 
 
-module.exports.myOtherMiddleware = myOtherMiddleware
+
 module.exports.validationMiddleware = validationMiddleware
