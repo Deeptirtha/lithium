@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 let objectId=mongoose.Schema.Types.ObjectId
 const orderSchema = new mongoose.Schema( {
     userId: {type:objectId,
-	ref:"User"},
+	ref:"New-User"},
 	productId:{type:objectId,
-		ref:"Product"},
+		ref:"Products"},
 	amount: Number,
 	isFreeAppUser: Boolean, 
 	date: {type:Number,

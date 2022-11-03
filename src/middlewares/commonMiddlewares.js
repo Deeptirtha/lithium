@@ -3,17 +3,15 @@
 
 
 const validationMiddleware = function(req, res, next){
-   
-
-    let validation = req.headers["isFreeAppUser"]
-    console.log(req.headers)
-
-    if(validation) {
+   let allhead = req.headers
+   let validation=allhead.isfreeappuser
+if(validation=='true' ||validation=='false') {
+        console.log("validation passed")
         next()
-    } else {
-        res.send({msg:"ERR can not creat user. isFreeAppUser Header is requerd"})
+ }
+else {
+    return res.send({msg:"ERR can not creat data. isFreeAppUser Header is requerd"})
     }
-    
 }
 
 

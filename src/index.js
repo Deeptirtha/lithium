@@ -14,14 +14,6 @@ mongoose.connect("mongodb+srv://DeeptirthaMukherjee:QYKI3k8QSKC4I7FZ@cluster1.kh
 .then( () => console.log("MongoDb is connected"))
 .catch ( err => console.log(err) )
 
-
-// app.use (
-//     function (req, res, next) {
-//         console.log ("inside GLOBAL MW");
-//         next()
-       
-//     });
-
 app.use('/', route);
 
 app.listen(process.env.PORT || 3000, function () {

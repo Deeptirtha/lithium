@@ -8,12 +8,12 @@ const userSchema = new mongoose.Schema( {
     age: Number,
      gender: {
         type: String,
-        enum: ["male", "female", "LGBTQ","other"] 
+        enum: ["male", "female","other"] 
     },
    
     isFreeAppUser:{type:Boolean,default:false}
    
 }, { timestamps: true });
 
-module.exports = mongoose.model('User', userSchema) 
+module.exports = mongoose.model('New-User', userSchema) 
 

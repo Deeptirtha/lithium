@@ -5,6 +5,4 @@ const productSchema = new mongoose.Schema( {
 	category:String,
 	price:Number
 }, { timestamps: true });
-
-
 module.exports = mongoose.model('Products', productSchema) 
