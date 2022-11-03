@@ -53,6 +53,9 @@ const Updatebalance = async function (req, res) {
         price=allOrder[i].productId.price
 }
 let NewData1=allOrder.filter(x=>x.userId.isFreeAppUser==true)
+
+allOrder.map(x=>x.userId.isFreeAppUser=false)//===========>>>>>  changing user to not a freeappuser
+
 let NewData2=allOrder.filter(x=>x.userId.isFreeAppUser==false)
 
 NewData2.map(x=>x.userId.balance=(x.userId.balance-price))
