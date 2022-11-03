@@ -1,11 +1,7 @@
-
-
-
-
 const validationMiddleware = function(req, res, next){
    let allhead = req.headers
    let validation=allhead.isfreeappuser
-if(validation=='true' ||validation=='false') {
+if(validation) {
         console.log("validation passed")
         next()
  }

@@ -5,7 +5,8 @@ const userModel = require("../models/userModel")
 
 const creatorder= async function (req, res) {
     let data= req.body
-    let userId=data.userId
+    
+let userId=data.userId
     let productId=data.productId
     if(!userId){return res.send({msg:"user id is mandatory"})}
     else if(!productId){return res.send({msg:"product id is mandatory"})}
@@ -43,7 +44,7 @@ const Updatebalance = async function (req, res) {
     let allOrder = await orderModel.find().populate("productId").populate("userId")
     let allhead = req.headers
     allhead.isfreeappuser=false
-    //allhead.isfreeappuser=true
+    allhead.isfreeappuser=true
     let validation=Boolean(allhead.isfreeappuser)
     let Balance=0
     let price=0
@@ -51,18 +52,16 @@ const Updatebalance = async function (req, res) {
         Balance=allOrder[i].userId.balance
         price=allOrder[i].productId.price
 }
+let NewData1=allOrder.filter(x=>x.userId.isFreeAppUser==true)
+let NewData2=allOrder.filter(x=>x.userId.isFreeAppUser==false)
+
+NewData2.map(x=>x.userId.balance=(x.userId.balance-price))
+
     if(Balance<price){
         res.send({msg:"can not buy this product your balance is low"})
     }
-    else if(validation==true){
-        res.send({data:allOrder})
-    }else{
+   else(res.send({FreeAppUserData:NewData1,NotFreeAppUserData:NewData2}))
 
-        let updatedData=allOrder.filter(x=>x.userId.balance>=0)
-        updatedData.map(x=>x.userId.balance=(x.userId.balance-price))
-      res.send(updatedData)
-    }
-    
     
     
 
