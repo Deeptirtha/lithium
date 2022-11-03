@@ -53,14 +53,6 @@ const updateUser = async function (req, res) {
   if (!user) {
     return res.send("No such user exists");
   }
-  let token = req.headers["x-auth-token"];
-  console.log(token)
-
-  if (!token) return res.send({ status: false, msg: "token must be present" });
-
-  let decodedToken = jwt.verify(token, "functionup-lithium-secret-key");
-  if (!decodedToken) return res.send({ status: false, msg: "token is invalid" });
-
 let userData = req.body;
   let updatedUser = await userModel.findOneAndUpdate({ _id: userId }, userData,{new:true});
   res.send({ status: "Data Updated", data: updatedUser });
@@ -72,14 +64,6 @@ const deleateUser = async function (req, res) {
   if (!user) {
     return res.send("No such user exists");
   }
-  let token = req.headers["x-auth-token"];
-  console.log(token)
-
-  if (!token) return res.send({ status: false, msg: "token must be present" });
-
-  let decodedToken = jwt.verify(token, "functionup-lithium-secret-key");
-  if (!decodedToken) return res.send({ status: false, msg: "token is invalid" });
-
 let userData = req.body;
   let updatedUser = await userModel.findOneAndUpdate({ _id: userId }, userData,{new:true});
   res.send({ status: "Data Updated", data: updatedUser });
