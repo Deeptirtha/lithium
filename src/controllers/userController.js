@@ -30,7 +30,6 @@ const loginUser = async function (req, res) {
 
 const getUserData = async function (req, res) {
   let token = req.headers["x-auth-token"];
-  console.log(token)
 
   if (!token) return res.send({ status: false, msg: "token must be present" });
 
