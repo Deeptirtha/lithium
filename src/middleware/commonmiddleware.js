@@ -15,7 +15,8 @@ const validationMiddleware = function(req, res, next){
 }
 
 const authorization= function(req, res, next){
- 
+   console.log(req.decodedToken.userId)
+   console.log(req.params.userId)
 
    if (req.decodedToken.userId!==req.params.userId) return res.send({ status: false, msg: "you do not have authorization to this " });
     else{
