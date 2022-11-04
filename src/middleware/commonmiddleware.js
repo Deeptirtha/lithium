@@ -2,8 +2,7 @@ const jwt = require("jsonwebtoken");
 const validationMiddleware = function(req, res, next){
 
     let token = req.headers["x-auth-token"];
-    console.log(token)
-  
+   
     if (!token) return res.send({ status: false, msg: "token must be present" });
   
     let decodedToken = jwt.verify(token, "functionup-lithium-secret-key");
