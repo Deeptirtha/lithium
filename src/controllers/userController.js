@@ -53,6 +53,7 @@ const updateUser = async function (req, res) {
   if (!user) {
     return res.send("No such user exists");
   }
+  console.log(decodedToken)
 let userData = req.body;
   let updatedUser = await userModel.findOneAndUpdate({ _id: userId }, userData,{new:true});
   res.send({ status: "Data Updated", data: updatedUser });
