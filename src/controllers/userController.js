@@ -2,10 +2,9 @@ const jwt = require("jsonwebtoken");
 const userModel = require("../models/userModel");
 
 const createUser = async function (req, res) {
-
-  let data = req.body;
-  let savedData = await userModel.create(data);
-  res.send({ msg: savedData });
+let body =req.body 
+let data=await userModel.creat(body)
+res.send({status:true,msg:data})
 };
 
 const loginUser = async function (req, res) {
