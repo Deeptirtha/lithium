@@ -12,7 +12,7 @@ router.post("/users", userController.createUser  )
 router.post("/login", userController.loginUser)
 
 
-router.get("/users/:userId", userController.getUserData)
+router.get("/users/:userId",commonMW.validationMiddleware,commonMW.authorization, userController.getUserData)
 
 //router.put("/users/:userId",commonMW.validationMiddleware, userController.updateUser)
 router.put("/users/:userId",commonMW.validationMiddleware,commonMW.authorization, userController.updateUser)
