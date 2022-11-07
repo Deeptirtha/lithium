@@ -12,7 +12,8 @@ router.post("/users", userController.createUser  )
 router.post("/login", userController.loginUser)
 
 
-router.get("/users/:userId",commonMW.validationMiddleware, userController.getUserData)
+router.get("/users/:userId",commonMW.validationMiddleware,commonMW.authorization, userController.getUserData)
+//router.get("/users/",function(req,res){res.send({msg:"you must enter a valid user id"})})
 
 //router.put("/users/:userId",commonMW.validationMiddleware, userController.updateUser)
 router.put("/users/:userId",commonMW.validationMiddleware,commonMW.authorization, userController.updateUser)
