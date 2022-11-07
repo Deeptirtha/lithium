@@ -9,10 +9,10 @@ const createUser = async function (req, res) {
 };
 
 const loginUser = async function (req, res) {
-  let userName = req.body.emailId;
+  let useremail = req.body.emailId;
   let password = req.body.password;
 
-  let user = await userModel.findOne({ emailId: userName, password: password });
+  let user = await userModel.findOne({ emailId: useremail, password: password });
   if (!user)
     return res.send({
       status: false,
@@ -25,7 +25,7 @@ const loginUser = async function (req, res) {
     "functionup-lithium-secret-key"
   );
   res.setHeader("x-auth-token", token);
-  res.send({ status: true, token: token });
+  res.send({ status: true, token: token,person:user });
 };
 
 const getUserData = async function (req, res) {
