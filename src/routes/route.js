@@ -13,5 +13,5 @@ router.get("/london", weatherController.weatherofLondon)
 router.get("/allcity", weatherController.weatherofallcity)
 
 
-
+module.exports=router
 
