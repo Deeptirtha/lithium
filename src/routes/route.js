@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const weatherController= require("../controllers/weathercontroller")
+const weatherController= require("../controllers/weatherController")
 
 
 
@@ -15,4 +15,4 @@ router.get("/allcity", weatherController.weatherofallcity)
 
 
 
-module.exports = router;
+module.exports = router
