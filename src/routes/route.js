@@ -15,4 +15,3 @@ router.get("/allcity", weatherController.weatherofallcity)
 
 
 
-module.exports = router
