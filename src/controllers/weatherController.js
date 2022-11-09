@@ -111,25 +111,9 @@ let weatherofallcity = async function (req, res) {
 
 
          
-          console.log(allCityTemp)
-
-
-
-
-          function compare( a, b ) {
-            if ( a.temp < b.temp ){
-              return -1;
-            }
-            if ( a.temp > b.temp ){
-              return 1;
-            }
-            return 0;
-          }
+          console.log(allCityTemp.sort((a, b) => a.temp - b.temp))
           
-          console.log(allCityTemp.sort( compare ))
-
-    
-            res.status(200).send({ city: data, city1:data1,city2:data2 ,city3:data3 ,city4:data4,city5:data5,city6:data6 })
+  res.status(200).send({ city: data, city1:data1,city2:data2 ,city3:data3 ,city4:data4,city5:data5,city6:data6 })
         }
         catch (err) {
             console.log(err)
