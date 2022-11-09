@@ -111,9 +111,9 @@ let weatherofallcity = async function (req, res) {
 
 
          
-          console.log(allCityTemp.sort((a, b) => a.temp - b.temp))
+          let x=(allCityTemp.sort((a, b) => a.temp - b.temp))
           
-  res.status(200).send({ city: data, city1:data1,city2:data2 ,city3:data3 ,city4:data4,city5:data5,city6:data6 })
+  res.status(200).send({ city: x })
         }
         catch (err) {
             console.log(err)
